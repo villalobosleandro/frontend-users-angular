@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <form  (ngSubmit)="addUser()" autocomplete="off" [formGroup]="userForm">
+          <input type="hidden" name="_id" formControlName="_id">
+          <div class="form-group">
+            <input
+              type="text" 
+              class="form-control" 
+              placeholder="Nombre" 
+              required 
+              name="nombre"
+              formControlName="nombre"
+            >
+            <!-- <span *ngIf="getFormControl('nombre')" class="errorWarning">Field is required</span> -->
+          </div>
+          
+
+          <div class="form-group">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Apellido" 
+              required 
+              name="apellido"
+              formControlName="apellido"
+            >
+            <!-- <span *ngIf="getFormControl('apellido')" class="errorWarning">Field is required</span> -->
+          </div>
+          
+
+          <div class="form-group">
+            <input 
+              type="number" 
+              class="form-control" 
+              placeholder="Cedula" 
+              required 
+              name="cedula"
+              formControlName="cedula"
+            >
+            <!-- <span *ngIf="getFormControl('cedula')" class="errorWarning">Field is required</span> -->
+          </div>
+          
+
+          <div class="form-group">
+            <input 
+              type="email" 
+              class="form-control" 
+              placeholder="Email" 
+              required 
+              name="email"
+              formControlName="email"
+            >
+            <!-- <span *ngIf="getFormControl('email')" class="errorWarning">Field is required</span> -->
+          </div>
+
+          <div class="form-group">
+            <input 
+              type="number" 
+              class="form-control" 
+              placeholder="Telefono" 
+              name="telefono"
+              formControlName="telefono"
+            >
+            <!-- <span *ngIf="getFormControl('email')" class="errorWarning">Field is required</span> -->
+          </div>
+
+          <div class="mt-2">
+            <button class="btn btn-primary marginRight10" type="button" (click)="resetForm()">
+              Clean
+            </button>
+  
+            <button class="btn btn-secondary" [disabled]="userForm.invalid">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Telefono</th>
+          <th>Cedula</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of usersService.users" >
+          <td>{{user.nombre}}</td>
+          <td>{{user.apellido}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.telefono}}</td>
+          <td>{{user.cedula}}</td>
+          <td>
+            <button class="btn - btn-secondary btn-sm marginRight5">
+              <i class="material-icons" (click)="editUser(user)">edit</i>
+            </button>
+            <button class="btn - btn-danger btn-sm">
+              <i class="material-icons" (click)="deleteUser(user)">delete</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
