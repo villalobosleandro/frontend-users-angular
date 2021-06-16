@@ -1,5 +1,6 @@
 # Frontend
 
+![Captura de la app](./.readme-public/captura2.gif)
 ![Captura de la app](./.readme-public/captura.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
